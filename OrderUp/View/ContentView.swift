@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var cartItems: Dictionary<Int, MenuItem> = [:]
+    @State var cartItems: Dictionary<Int, MenuItem> = [:]
     
     var menuItems = MenuItem.loadMenuItems()
     let categories = Category.loadCategories()

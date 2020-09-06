@@ -41,6 +41,7 @@ struct MenuCell: View {
                     Spacer()
 
                     if itemInCart && stepperValue > 0 {
+                        //StepperView(stepperValue: stepperValue, menuItem: menuItem)
                         ZStack(alignment: .center) {
                             Stepper("Value", value: $stepperValue, in: 0...100, step: 1)
                                 .labelsHidden()

@@ -15,13 +15,13 @@ struct Category: Identifiable{
     
     
     static func loadCategories() -> [Category] {
-        let status1 = Category(id: 1, image: "icons8-chips", name: "Breakfast")
-        let status2 = Category(id: 2, image: "icons8-salmon", name: "Lunch")
-        let status3 = Category(id: 3, image: "icons8-salmon", name: "Dinner")
-        let status4 = Category(id: 4, image: "icons8-salmon", name: "Sides")
-        let status5 = Category(id: 5, image: "icons8-salmon", name: "Drinks")
-        let status6 = Category(id: 6, image: "icons8-salmon", name: "Dessert")
-      return [status1, status2, status3, status4, status5, status6]
+        let cat1 = Category(id: 1, image: "icons8-chips", name: "Breakfast")
+        let cat2 = Category(id: 2, image: "icons8-salmon", name: "Lunch")
+        let cat3 = Category(id: 3, image: "icons8-salmon", name: "Dinner")
+        let cat4 = Category(id: 4, image: "icons8-sweet_banana", name: "Sides")
+        let cat5 = Category(id: 5, image: "icons8-salmon", name: "Drinks")
+        let cat6 = Category(id: 6, image: "icons8-cherry_donut", name: "Dessert")
+      return [cat1, cat2, cat3, cat4, cat5, cat6]
     }
     
     

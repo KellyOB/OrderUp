@@ -14,6 +14,7 @@
 		BEDCB4392501C18D00D68697 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDCB4382501C18D00D68697 /* Preview Assets.xcassets */; };
 		BEDCB43C2501C18D00D68697 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEDCB43A2501C18D00D68697 /* LaunchScreen.storyboard */; };
 		BEDCB4452501C3D000D68697 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDCB4442501C3D000D68697 /* MenuItem.swift */; };
+		BEDD380325044AE0003BB738 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDD380225044AE0003BB738 /* CartItem.swift */; };
 		BEE7A773250214FE0005C7F6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A772250214FE0005C7F6 /* Category.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		BEDCB43B2501C18D00D68697 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEDCB43D2501C18D00D68697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEDCB4442501C3D000D68697 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		BEDD380225044AE0003BB738 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		BEE7A772250214FE0005C7F6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 			children = (
 				BEDCB4442501C3D000D68697 /* MenuItem.swift */,
 				BEE7A772250214FE0005C7F6 /* Category.swift */,
+				BEDD380225044AE0003BB738 /* CartItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				BEE7A773250214FE0005C7F6 /* Category.swift in Sources */,
 				BEDCB4452501C3D000D68697 /* MenuItem.swift in Sources */,
 				BEDCB4322501C18B00D68697 /* SceneDelegate.swift in Sources */,
+				BEDD380325044AE0003BB738 /* CartItem.swift in Sources */,
 				BEDCB4342501C18B00D68697 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var cartItems: Dictionary<Int, MenuItem> = [:]
-    var availableMenuItems = MenuItem.loadMenuItems()
+    var menuItems = MenuItem.loadMenuItems()
     let categories = Category.loadCategories()
     
     var body: some View {
@@ -20,7 +20,6 @@ struct ContentView: View {
                 Text("Categories")
                     .font(.headline)
                     .padding(.leading)
-                
                 
                 ScrollView(.horizontal, content: {
                     HStack(spacing: 10) {
@@ -32,33 +31,27 @@ struct ContentView: View {
                 })
                     .frame(height: 190)
                 
-                
-                
                 Text("Menu")
                     .font(.headline)
                     .fontWeight(.medium)
                     .padding(.leading)
                 
-                List(availableMenuItems) {
+                List(menuItems) {
                     item in
                     MenuRow(inCart: self.inCart(menuItem: item), menuItem: item)
-                        
-                        .onTapGesture {
-                            self.toggleCartItem(menuItem: item)
-                    }
+                   // MenuRow(inCart: self.inCart(menuItem: item), menuItem: item)
                 }
-                
             }
+            .navigationBarTitle(Text("The Menu"), displayMode: .inline)
+            .navigationBarItems(trailing: Cart(cartItems: cartItems.count))
+            .padding(.top, 20.0)
         }
-        .padding(.top, 20.0)
-        .navigationBarTitle(Text("The Menu"), displayMode: .inline)
-        
     }
     
     func inCart(menuItem: MenuItem) -> Bool {
         return cartItems[menuItem.id] != nil
     }
-    
+
     func toggleCartItem(menuItem: MenuItem) {
         if cartItems[menuItem.id] == nil {
             cartItems[menuItem.id] = menuItem
@@ -75,8 +68,11 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct MenuRow: View {
-    @State var numberOfItems: Int = 0
-    var inCart: Bool
+    @State var stepperValue: Int = 0
+    @State private var itemInCart = false
+    @State private var cartItems: Dictionary<Int, MenuItem> = [:]
+    
+    var inCart: Bool = false
     var menuItem: MenuItem
     var body: some View {
         
@@ -85,7 +81,6 @@ struct MenuRow: View {
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(maxWidth: 75)
-            
             
             VStack(alignment: .leading) {
                 Text(menuItem.name)
@@ -96,9 +91,6 @@ struct MenuRow: View {
                     
                     .foregroundColor(Color.gray)
                 
-                //                Stepper(title, value: $value, in: 1...100)
-                //                .labelsHidden()
-                
                 HStack {
                     Text(String(format: "$%.2f", menuItem.price))
                         .fontWeight(.bold)
@@ -106,32 +98,39 @@ struct MenuRow: View {
                         .foregroundColor(Color(hue: 1.0, saturation: 0.838, brightness: 0.661))
                     
                     Spacer()
-                    
-                    ZStack {
-                        //                        Button(action: {
-                        //                             //self.isInCart.toggle()
-                        //                         }) {
-                        //                             Text("Add to Cart")
-                        //                                 .font(.footnote)
-                        //                                 .foregroundColor(Color.white)
-                        //                         }
-                        //                         .padding(.all, 5.0)
-                        //                         .background(/*@START_MENU_TOKEN@*/Color.red/*@END_MENU_TOKEN@*/)
-                        //                       .cornerRadius(10)
-                        
-                        //                        Stepper(value: $numberOfItems, in: 1...10, label: { Text("  \(numberOfItems)")}).padding()
-                        
+
+                    if itemInCart && stepperValue > 0 {
                         ZStack(alignment: .center) {
-                            Stepper("Value", value: $numberOfItems, in: 1...100, step: 1)
+                            Stepper("Value", value: $stepperValue, in: 0...100, step: 1)
                                 .labelsHidden()
                             
-                            Text("1")
+                            Text("\(stepperValue)")
                                 .foregroundColor(Color(hue: 1.0, saturation: 0.838, brightness: 0.661))
                         }
+                    } else {
+                        
+                        Button(action: {
+                            self.itemInCart = true
+                            self.stepperValue = 1
+                            self.toggleCartItem(menuItem: self.menuItem)
+ 
+                        }) {
+                            Text("Add to Cart")
+                                .font(.footnote)
+                                .foregroundColor(Color.white)
+                        }
+                        .padding(.all, 5.0)
+                        .background(/*@START_MENU_TOKEN@*/Color.red/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(10)
+          
                     }
-                    if inCart {
-                        // hide button
-                    }
+                    //                       .onTapGesture {
+                    //                               self.toggleCartItem(menuItem: item)
+                    //                       }
+                    
+                    
+                    // }
+                    
                 }
                 
                 Spacer()
@@ -140,14 +139,50 @@ struct MenuRow: View {
                 //                    .aspectRatio(1, contentMode: .fit)
                 //                    .frame(maxWidth: 50)
             }
-            
+        }
+    }
+    
+    func inCart(menuItem: MenuItem) -> Bool {
+        return cartItems[menuItem.id] != nil
+    }
+    
+    func toggleCartItem(menuItem: MenuItem) {
+        if cartItems[menuItem.id] == nil {
+            cartItems[menuItem.id] = menuItem
+        } else {
+            cartItems[menuItem.id] = nil
         }
     }
 }
 
+//struct StepperView: View {
+//
+//    var menuItem: MenuItem
+//    @State private var cartItems: Dictionary<Int, MenuItem> = [:]
+//
+//    var body: some View {
+//
+//        List(availableItems) {
+//            item in
+//            MenuRow(inCart: self.inCart(menuItem: menuItem), menuItem: item)
+//
+//                .onTapGesture {
+//                    self.toggleCartItem(menuItem: item)
+//            }
+//        }
+//    }
+//}
+
+
+
+//extension View {
+//    func hiddenConditionally(isHidden: Bool) -> some View {
+//        isHidden ? AnyView(self.hidden()) : AnyView(self)
+//    }
+//}
+
 //struct MenuList: View {
-//    
-//    
+//
 //    var availableItems: [MenuItem]
 //    @State private var cartItems: Dictionary<Int, MenuItem> = [:]
 //    
@@ -161,15 +196,12 @@ struct MenuRow: View {
 //                    self.toggleCartItem(menuItem: item)
 //            }
 //        }
-//        
 //    }
-//    
-//    
 //}
-
 
 struct Cart: View {
     var cartItems: Int
+    
     var body: some View {
         ZStack {
             Image("cart")
@@ -191,7 +223,7 @@ struct Cart: View {
 }
 
 struct CategoryView: View {
-
+    
     let category: Category
     
     var body: some View {
@@ -202,11 +234,7 @@ struct CategoryView: View {
                 .aspectRatio(1, contentMode: .fit)
                 .frame(maxWidth: 110)
                 //.frame(width: 100)
-                
-                // create outer view with border (color, width)
                 .border(Color.gray.opacity(0.5), width: 0.5)
-                
-                // apply cornerRadius to hide visible cut out after applying border
                 .cornerRadius(8)
             
             Text(category.name)

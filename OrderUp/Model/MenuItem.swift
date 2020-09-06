@@ -20,9 +20,7 @@ struct MenuItem: Identifiable { //}, Equatable {
             MenuItem(id: 1, image: "icons8-chips", name: "Chips", description: "Shoe-string french fries.", price: 0.99),
             MenuItem(id: 2, image: "icons8-salmon", name: "Salmon", description: "Moist and delicious, this salmon is cooked to perfection and served with brocolli.", price: 24.99),
             MenuItem(id: 3, image: "icons8-cherry_donut", name: "Cherry Donut", description: "Sweet treat.", price: 0.75)
-        ]//.sorted(by: { (lhsShopItem, rhsShopItem) -> Bool in
-         //   return lhsShopItem.name < rhsShopItem.name
-       // })
+        ]
     }
 }
 

@@ -24,17 +24,17 @@ struct CategoryCell: View {
                 .cornerRadius(12)
                 .shadow(color: .gray, radius: 5, x: 5, y: 7)
              
-            //if category == self.selectedCategory {
+            if category.name == self.selectedCategory {
                 Text(category.name)
                 .fontWeight(.bold)
                 .font(.custom("Avenir", size: 20))
                     .foregroundColor(.red)
-//            } else {
-//                Text(category.name)
-//                .fontWeight(.bold)
-//                .font(.custom("Avenir", size: 20))
-//                    .foregroundColor(.black)
-//            }
+            } else {
+                Text(category.name)
+                .fontWeight(.bold)
+                .font(.custom("Avenir", size: 20))
+                    .foregroundColor(.black)
+            }
         }
         .onTapGesture {
             print("category tapped \(self.category.name)")

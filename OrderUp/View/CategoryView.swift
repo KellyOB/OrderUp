@@ -10,17 +10,8 @@ import SwiftUI
 
 struct CategoryView: View {
         
-    
-    
     @Binding var selectedCategory: String
     
-//    @Binding var selectedCategory: Categories = .pizza {
-//        didSet {
-//            if selectedCategory == .pizza {
-//                print("Pizza category selected")
-//            }
-//        }
-//    }
     let categories: [Category]
     
     var body: some View {
@@ -34,6 +25,5 @@ struct CategoryView: View {
             .padding(.leading, 20)
         })
             .frame(height: 200)
-        
     }
 }

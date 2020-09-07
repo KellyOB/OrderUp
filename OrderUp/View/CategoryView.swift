@@ -12,7 +12,7 @@ struct CategoryView: View {
         
     
     
-    //var selectedCategory: String
+    @Binding var selectedCategory: String
     
 //    @Binding var selectedCategory: Categories = .pizza {
 //        didSet {
@@ -28,7 +28,7 @@ struct CategoryView: View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             HStack(spacing: 20) {
                 ForEach(categories) { category in
-                    CategoryCell(category: category)
+                    CategoryCell(selectedCategory: self.$selectedCategory, category: category)
                 }
             }
             .padding(.leading, 20)

@@ -8,18 +8,21 @@
 
 import SwiftUI
 
+enum Categories: String {
+    case pizza = "Pizza"
+    case pasta = "Pasta"
+}
+
 struct ContentView: View {
     
     @State var cartItems: Dictionary<Int, MenuItem> = [:]
-    //var selectedCategory: String
+    @State var selectedCategory = "Pizza"
   
-   // var menuItems =
     let categories = Category.loadCategories()
-    var selectedCategoryMenuItems = "Pasta" {
+    
+    var selectedCategoryMenuItems = String() {
         didSet {
-
-                //selectedCategoryMenuItems = "pizza"
-
+                selectedCategoryMenuItems = selectedCategory
         }
     }
     
@@ -31,14 +34,14 @@ struct ContentView: View {
                     .font(.custom("Avenir", size: 20))
                     .padding(.leading, 20)
                 
-                CategoryView(categories: categories)
+                CategoryView(selectedCategory: $selectedCategory, categories: categories)
                 
                 Text("Menu")
                 .fontWeight(.bold)
                 .font(.custom("Avenir", size: 20))
                 .padding(.leading, 20)
                 
-                MenuView(menuItems: MenuItem.loadmenu(category: selectedCategoryMenuItems))
+                MenuView(menuItems: MenuItem.loadmenu(category: selectedCategory))
 //                List(menuItems) {
 //                    item in
 //                    MenuCell(inCart: self.inCart(menuItem: item), menuItem: item)

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CategoryCell: View {
     
- //var selectedCategory: String
+ @Binding var selectedCategory: String
     
     var category: Category
     
@@ -38,7 +38,7 @@ struct CategoryCell: View {
         }
         .onTapGesture {
             print("category tapped \(self.category.name)")
-            //self.selectedCategory = self.category.name
+            self.selectedCategory = self.category.name
         }
     }
 }

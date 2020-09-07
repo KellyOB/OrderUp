@@ -10,17 +10,20 @@ import SwiftUI
 
 struct StepperView: View {
     
-    @Binding var cartItems: Dictionary<Int, CartItem>
-    var item: MenuItem
-    @State var stepperValue: Int = 0
-    
+   // @Binding var cartItems: Dictionary<Int, CartItem>
+    //var item: MenuItem
+   @State var quantity: Int = 0
     var body: some View {
         ZStack(alignment: .center) {
-            Stepper("Value", value: $stepperValue, in: 0...100, step: 1)
-                .labelsHidden()
+            Stepper(onIncrement: {
+                self.quantity += 1
+            }, onDecrement: {
+                self.quantity -= 1
+            }, label: { Text("\(quantity)") })
+            .labelsHidden()
             
-            Text("\(stepperValue)")
-                .foregroundColor(Color(hue: 1.0, saturation: 0.838, brightness: 0.661))
+            Text("\(quantity)")
+                .foregroundColor(Color.red)
         }
     }
 }

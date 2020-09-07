@@ -13,10 +13,10 @@ struct Cart: View {
     
     var body: some View {
         ZStack {
-            Image("cart")
+            Image(systemName: "cart")
                 .resizable()
-                .aspectRatio(1, contentMode: .fit)
-                .frame(maxWidth: 40)
+                //.aspectRatio(1, contentMode: .fit)
+                .frame(maxWidth: 80)
             ZStack {
                 Circle()
                     .fill(Color.red)

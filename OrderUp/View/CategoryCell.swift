@@ -10,7 +10,9 @@ import SwiftUI
 
 struct CategoryCell: View {
     
-    let category: Category
+ //var selectedCategory: String
+    
+    var category: Category
     
     var body: some View {
     
@@ -18,14 +20,25 @@ struct CategoryCell: View {
             Image(category.image)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
-                .frame(maxWidth: 110)
-                //.frame(width: 100)
-                .border(Color.gray.opacity(0.5), width: 0.5)
-                .cornerRadius(8)
-            
-            Text(category.name)
+                .frame(width: 150)
+                .cornerRadius(12)
+                .shadow(color: .gray, radius: 5, x: 5, y: 7)
+             
+            //if category == self.selectedCategory {
+                Text(category.name)
                 .fontWeight(.bold)
-                .font(.custom("Avenir", size: 17))
+                .font(.custom("Avenir", size: 20))
+                    .foregroundColor(.red)
+//            } else {
+//                Text(category.name)
+//                .fontWeight(.bold)
+//                .font(.custom("Avenir", size: 20))
+//                    .foregroundColor(.black)
+//            }
+        }
+        .onTapGesture {
+            print("category tapped \(self.category.name)")
+            //self.selectedCategory = self.category.name
         }
     }
 }

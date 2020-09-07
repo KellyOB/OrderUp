@@ -11,34 +11,46 @@ import SwiftUI
 struct ContentView: View {
     
     @State var cartItems: Dictionary<Int, MenuItem> = [:]
-    
-    var menuItems = MenuItem.loadMenuItems()
+    //var selectedCategory: String
+  
+   // var menuItems =
     let categories = Category.loadCategories()
+    var selectedCategoryMenuItems = "Pasta" {
+        didSet {
+
+                //selectedCategoryMenuItems = "pizza"
+
+        }
+    }
     
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 Text("Categories")
-                    .font(.headline)
-                    .padding(.leading)
+                    .fontWeight(.bold)
+                    .font(.custom("Avenir", size: 20))
+                    .padding(.leading, 20)
                 
                 CategoryView(categories: categories)
                 
                 Text("Menu")
-                    .font(.headline)
-                    .fontWeight(.medium)
-                    .padding(.leading)
+                .fontWeight(.bold)
+                .font(.custom("Avenir", size: 20))
+                .padding(.leading, 20)
                 
-                MenuView(menuItems: menuItems)
+                MenuView(menuItems: MenuItem.loadmenu(category: selectedCategoryMenuItems))
 //                List(menuItems) {
 //                    item in
 //                    MenuCell(inCart: self.inCart(menuItem: item), menuItem: item)
 //                }
             }
+            
+                
             .navigationBarTitle(Text("The Menu"), displayMode: .inline)
             .navigationBarItems(trailing: Cart(cartItems: cartItems.count))
             .padding(.top, 20.0)
         }
+        
     }
     
     func inCart(menuItem: MenuItem) -> Bool {

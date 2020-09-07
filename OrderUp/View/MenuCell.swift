@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MenuCell: View {
-    @State var stepperValue: Int = 0
+    @State var quantity: Int = 0
     @State private var itemInCart = false
     @State private var cartItems: Dictionary<Int, MenuItem> = [:]
     
@@ -17,17 +17,20 @@ struct MenuCell: View {
     var menuItem: MenuItem
     var body: some View {
         
-        HStack {
+        HStack(alignment: .center, spacing: 40) {
             Image(menuItem.image)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
-                .frame(maxWidth: 75)
+                .frame(width: 110)
+                .cornerRadius(12)
+                .shadow(color: .gray, radius: 5, x: 3, y: 5)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing:7) {
                 Text(menuItem.name)
-                    .fontWeight(.medium)
-                    .font(.custom("Avenir", size: 16))
+                    .fontWeight(.bold)
+                    .font(.custom("Avenir", size: 17))
                 Text(menuItem.description)
+                    .fontWeight(.medium)
                     .font(.custom("Avenir", size: 14))
                     
                     .foregroundColor(Color.gray)
@@ -35,25 +38,31 @@ struct MenuCell: View {
                 HStack {
                     Text(String(format: "$%.2f", menuItem.price))
                         .fontWeight(.bold)
-                        .font(.custom("Avenir", size: 15))
-                        .foregroundColor(Color(hue: 1.0, saturation: 0.838, brightness: 0.661))
+                        .font(.custom("Avenir", size: 16))
+                        .foregroundColor(Color.red)
                     
                     Spacer()
 
-                    if itemInCart && stepperValue > 0 {
-                        //StepperView(stepperValue: stepperValue, menuItem: menuItem)
+                    if itemInCart && quantity > 0 {
+                        // this isn't hiding stepper when going to 0
+                        //StepperView(quantity: quantity)
                         ZStack(alignment: .center) {
-                            Stepper("Value", value: $stepperValue, in: 0...100, step: 1)
-                                .labelsHidden()
-                            
-                            Text("\(stepperValue)")
-                                .foregroundColor(Color(hue: 1.0, saturation: 0.838, brightness: 0.661))
+                            Stepper(onIncrement: {
+                                self.quantity += 1
+                            }, onDecrement: {
+                                self.quantity -= 1
+                            }, label: { Text("\(quantity)") })
+                            .labelsHidden()
+
+                            Text("\(quantity)")
+                                .foregroundColor(Color.red)
+                                .font(.custom("Avenir", size: 14))
                         }
                     } else {
                         
                         Button(action: {
                             self.itemInCart = true
-                            self.stepperValue = 1
+                            self.quantity = 1
                             self.toggleCartItem(menuItem: self.menuItem)
  
                         }) {
@@ -76,12 +85,12 @@ struct MenuCell: View {
                     
                 }
                 
-                Spacer()
+                //Spacer()
                 //                Image(inCart ? "checked" : "unchecked")
                 //                .resizable()
                 //                    .aspectRatio(1, contentMode: .fit)
                 //                    .frame(maxWidth: 50)
-            }
+            }//.padding(navigationBarItems(leading: 20))
         }
     }
     

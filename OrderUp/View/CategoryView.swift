@@ -9,21 +9,31 @@
 import SwiftUI
 
 struct CategoryView: View {
+        
     
     
+    //var selectedCategory: String
+    
+//    @Binding var selectedCategory: Categories = .pizza {
+//        didSet {
+//            if selectedCategory == .pizza {
+//                print("Pizza category selected")
+//            }
+//        }
+//    }
     let categories: [Category]
     
     var body: some View {
         
-        ScrollView(.horizontal, content: {
-            HStack(spacing: 10) {
+        ScrollView(.horizontal, showsIndicators: false, content: {
+            HStack(spacing: 20) {
                 ForEach(categories) { category in
                     CategoryCell(category: category)
                 }
             }
-            .padding(.leading, 10)
+            .padding(.leading, 20)
         })
-            .frame(height: 190)
+            .frame(height: 200)
         
     }
 }

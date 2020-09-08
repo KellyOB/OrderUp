@@ -24,6 +24,6 @@ struct CategoryView: View {
             }
             .padding(.leading, 20)
         })
-            .frame(height: 200)
+            //.frame(height: 180)
     }
 }

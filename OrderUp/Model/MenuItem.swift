@@ -35,39 +35,35 @@ struct MenuItem: Identifiable { //}, Equatable {
             
         case "Pasta":
             return [
-                MenuItem(id: 1, image: "pasta", name: "Pasta Marinara", description: "Classic spaghetti in red sauce.", price: 14.50),
-                MenuItem(id: 2, image: "pasta-pesto", name: "Pesto Pasta", description: "Spaghetti in a freshly made basil pesto sauce.", price: 16.50),
-                MenuItem(id: 3, image: "pasta-bolognese", name: "Spaghetti Bolognese", description: "Spaghetti in a meat sauce.", price: 18.50),
-                MenuItem(id: 4, image: "pasta-shrimp", name: "Shrimp Fra Diavolo", description: "Garlic shrimp & crushed red pepper with penne in spicy rosa sauce.", price: 17.50),
-                MenuItem(id: 5, image: "pasta-scallops", name: "Seafood Pasta", description: "Spaghetti with scallops and shrimp.", price: 21.50),
-                MenuItem(id: 6, image: "pasta-gnocchi", name: "Gnocchi", description: "Bite size flour and potato dumplings in a white sauce.", price: 14.50),
-                MenuItem(id: 7, image: "pasta-baked", name: "Baked Rigatoni", description: "Spicy Italian sausage & meat sauce tossed & topped with mozzarella, parmesan & ricotta.", price: 18.50)
+                MenuItem(id: 8, image: "pasta", name: "Pasta Marinara", description: "Classic spaghetti in red sauce.", price: 14.50),
+                MenuItem(id: 9, image: "pasta-pesto", name: "Pesto Pasta", description: "Spaghetti in a freshly made basil pesto sauce.", price: 16.50),
+                MenuItem(id: 10, image: "pasta-bolognese", name: "Spaghetti Bolognese", description: "Spaghetti in a meat sauce.", price: 18.50),
+                MenuItem(id: 11, image: "pasta-shrimp", name: "Shrimp Fra Diavolo", description: "Garlic shrimp & crushed red pepper with penne in spicy rosa sauce.", price: 17.50),
+                MenuItem(id: 12, image: "pasta-scallops", name: "Seafood Pasta", description: "Spaghetti with scallops and shrimp.", price: 21.50),
+                MenuItem(id: 13, image: "pasta-gnocchi", name: "Gnocchi", description: "Bite size flour and potato dumplings in a white sauce.", price: 14.50),
+                MenuItem(id: 14, image: "pasta-baked", name: "Baked Rigatoni", description: "Spicy Italian sausage & meat sauce tossed & topped with mozzarella, parmesan & ricotta.", price: 18.50)
             ]
             
            case "Salad":
             return [
-                MenuItem(id: 1, image: "salad", name: "House Salad", description: "Romain with tomoatoes, onions, olives with Italian dressing.", price: 4.50),
-                MenuItem(id: 2, image: "salad-caprese", name: "Caprese Salad", description: "Fresh Mozzarella, tomatoes, basil and Italian dressing. Served with garlic bread.", price: 7.50),
-                MenuItem(id: 3, image: "salad-caesar", name: "Caesar Salad", description: "Romaine hearts tossed in our signature Caesar dressing with roasted garlic croutons & parmesan.", price: 7.50),
-                MenuItem(id: 4, image: "salad-tofu", name: "Tofu Salad", description: "Vegetarian salad packed with protein.", price: 8.50),
-                MenuItem(id: 5, image: "salad-pecans", name: "Pecan Salad", description: "Pecans, sun-dried tomatoes and avocado on romaine.", price: 7.50),
-                MenuItem(id: 6, image: "salad-shrimp", name: "Shrimp Salad", description: "Garlic shrimp salad with romaine lettuce.", price: 8.50),
-                MenuItem(id: 7, image: "salad-strawberry-mint", name: "Strawberry Mint Salad", description: "Strawberry,mint and feta on romaine with a balsalmic glaze.", price: 8.50)
+                MenuItem(id: 15, image: "salad", name: "House Salad", description: "Romain with tomoatoes, onions, olives with Italian dressing.", price: 4.50),
+                MenuItem(id: 16, image: "salad-caprese", name: "Caprese Salad", description: "Fresh Mozzarella, tomatoes, basil and Italian dressing. Served with garlic bread.", price: 7.50),
+                MenuItem(id: 17, image: "salad-caesar", name: "Caesar Salad", description: "Romaine hearts tossed in our signature Caesar dressing with roasted garlic croutons & parmesan.", price: 7.50),
+                MenuItem(id: 18, image: "salad-tofu", name: "Tofu Salad", description: "Vegetarian salad packed with protein.", price: 8.50),
+                MenuItem(id: 19, image: "salad-pecans", name: "Pecan Salad", description: "Pecans, sun-dried tomatoes and avocado on romaine.", price: 7.50),
+                MenuItem(id: 20, image: "salad-shrimp", name: "Shrimp Salad", description: "Garlic shrimp salad with romaine lettuce.", price: 8.50),
+                MenuItem(id: 21, image: "salad-strawberry-mint", name: "Strawberry Mint Salad", description: "Strawberry,mint and feta on romaine with a balsalmic glaze.", price: 8.50)
             ]
-            
-            
-            
-            
             
         default:
             return [
-                MenuItem(id: 1, image: "dessert", name: "Berry Crepes", description: "Decadent strawberry and raspberry crepes.", price: 8.50),
-                MenuItem(id: 2, image: "dessert-apple-pie", name: "Apple Pie", description: "Hand-peeled mix of fresh apples with cinnamon, sugar and nutmeg.", price: 7.50),
-                MenuItem(id: 3, image: "dessert-cherry-pie", name: "Cherry Pie", description: "Tart cheerys atop a flaky crust.", price: 7.50),
-                MenuItem(id: 4, image: "dessert-molten-lava", name: "Molten Lava Cake", description: "Chocolate cake with a molten chocolate center.", price: 8.50),
-                MenuItem(id: 5, image: "dessert-mint-chocolate", name: "Mint Chocolate Cupcake", description: "Oh so minty and chocolatey.", price: 4.50),
-                MenuItem(id: 6, image: "dessert-chocolate-raspberry", name: "Chocolate Raspberry Tart", description: "Choclate filling topped with raspberries.", price: 8.50),
-                 MenuItem(id: 7, image: "dessert-frappachino", name: "Mocha Frappuccino", description: "It's the perfect cold coffee drink, served with whipped cream.", price: 6.50),
+                MenuItem(id: 22, image: "dessert", name: "Berry Crepes", description: "Decadent strawberry and raspberry crepes.", price: 8.50),
+                MenuItem(id: 23, image: "dessert-apple-pie", name: "Apple Pie", description: "Hand-peeled mix of fresh apples with cinnamon, sugar and nutmeg.", price: 7.50),
+                MenuItem(id: 24, image: "dessert-cherry-pie", name: "Cherry Pie", description: "Tart cheerys atop a flaky crust.", price: 7.50),
+                MenuItem(id: 25, image: "dessert-molten-lava", name: "Molten Lava Cake", description: "Chocolate cake with a molten chocolate center.", price: 8.50),
+                MenuItem(id: 26, image: "dessert-mint-chocolate", name: "Mint Chocolate Cupcake", description: "Oh so minty and chocolatey.", price: 4.50),
+                MenuItem(id: 27, image: "dessert-chocolate-raspberry", name: "Chocolate Raspberry Tart", description: "Choclate filling topped with raspberries.", price: 8.50),
+                 MenuItem(id: 28, image: "dessert-frappachino", name: "Mocha Frappuccino", description: "It's the perfect cold coffee drink, served with whipped cream.", price: 6.50)
                 
             ]
         }

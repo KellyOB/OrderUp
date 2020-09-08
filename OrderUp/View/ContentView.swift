@@ -44,7 +44,7 @@ struct ContentView: View {
             }
             
                 
-            .navigationBarTitle(Text("The Menu"), displayMode: .inline)
+            .navigationBarTitle(Text("Order Up"), displayMode: .inline)
             .navigationBarItems(trailing: Cart(cartItems: cartItems.count))
             .padding(.top, 20.0)
         }

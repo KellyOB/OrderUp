@@ -20,7 +20,7 @@ struct CategoryCell: View {
             Image(category.image)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
-                .frame(width: 150)
+                .frame(width: 130)
                 .cornerRadius(12)
                 .shadow(color: .gray, radius: 5, x: 5, y: 7)
              

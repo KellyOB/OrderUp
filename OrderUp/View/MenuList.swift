@@ -1,5 +1,5 @@
 //
-//  MenuView.swift
+//  MenuList.swift
 //  OrderUp
 //
 //  Created by Kelly O'Brien on 9/5/20.
@@ -8,15 +8,18 @@
 
 import SwiftUI
 
-struct MenuView: View {
+struct MenuList: View {
     
     let menuItems: [MenuItem]
+    // use state whenever a view neds to maniuplate its own data
+    //@State private var cartItems: Dictionary<Int, MenuItem> = [:]
     
     var body: some View {
         
         List(menuItems) {
             item in
-            MenuCell(menuItem: item)
+            MenuRow(menuItem: item)
+                
             //MenuCell(inCart: self.inCart(menuItem: item), menuItem: item)
             
         }
@@ -26,4 +29,6 @@ struct MenuView: View {
             UITableView.appearance().separatorStyle = .none
         }
     }
+    
+    
 }

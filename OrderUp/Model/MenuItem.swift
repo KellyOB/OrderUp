@@ -12,7 +12,7 @@ import Foundation
 //    case pizza, pasta, salad, dessert
 //}
 
-struct MenuItem: Identifiable { //}, Equatable {
+struct MenuItem: Identifiable { 
     var id: Int
     var image: String
     var name: String

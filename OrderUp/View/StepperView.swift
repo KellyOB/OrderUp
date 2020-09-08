@@ -12,13 +12,19 @@ struct StepperView: View {
     
    // @Binding var cartItems: Dictionary<Int, CartItem>
     //var item: MenuItem
-   @State var quantity: Int = 0
+   @State var quantity: Int
+    
     var body: some View {
         ZStack(alignment: .center) {
             Stepper(onIncrement: {
                 self.quantity += 1
             }, onDecrement: {
-                self.quantity -= 1
+                if self.quantity > 0 {
+                    self.quantity -= 1
+                } else {
+                    print("you are at 0")
+                }
+                
             }, label: { Text("\(quantity)") })
             .labelsHidden()
             

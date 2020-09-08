@@ -36,32 +36,13 @@ struct ContentView: View {
                 .font(.custom("Avenir", size: 20))
                 .padding(.leading, 20)
                 
-                MenuView(menuItems: MenuItem.loadmenu(category: selectedCategory))
-//                List(menuItems) {
-//                    item in
-//                    MenuCell(inCart: self.inCart(menuItem: item), menuItem: item)
-//                }
+                MenuList(menuItems: MenuItem.loadmenu(category: selectedCategory))
             }
-            
-                
             .navigationBarTitle(Text("Order Up"), displayMode: .inline)
             .navigationBarItems(trailing: Cart(cartItems: cartItems.count))
             .padding(.top, 20.0)
         }
-        
     }
-    
-    func inCart(menuItem: MenuItem) -> Bool {
-        return cartItems[menuItem.id] != nil
-    }
-
-//    func toggleCartItem(menuItem: MenuItem) {
-//        if cartItems[menuItem.id] == nil {
-//            cartItems[menuItem.id] = menuItem
-//        } else {
-//            cartItems[menuItem.id] = nil
-//        }
-//    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -69,53 +50,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
-
-//struct StepperView: View {
-//
-//    var menuItem: MenuItem
-//    @State private var cartItems: Dictionary<Int, MenuItem> = [:]
-//
-//    var body: some View {
-//
-//        List(availableItems) {
-//            item in
-//            MenuRow(inCart: self.inCart(menuItem: menuItem), menuItem: item)
-//
-//                .onTapGesture {
-//                    self.toggleCartItem(menuItem: item)
-//            }
-//        }
-//    }
-//}
-
-
-
-//extension View {
-//    func hiddenConditionally(isHidden: Bool) -> some View {
-//        isHidden ? AnyView(self.hidden()) : AnyView(self)
-//    }
-//}
-
-//struct MenuList: View {
-//
-//    var availableItems: [MenuItem]
-//    @State private var cartItems: Dictionary<Int, MenuItem> = [:]
-//    
-//    var body: some View {
-//        
-//        List(availableItems) {
-//            item in
-//            MenuRow(inCart: self.inCart(menuItem: item), menuItem: item)
-//                
-//                .onTapGesture {
-//                    self.toggleCartItem(menuItem: item)
-//            }
-//        }
-//    }
-//}
-
-
-
-

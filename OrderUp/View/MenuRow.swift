@@ -1,5 +1,5 @@
 //
-//  MenuCell.swift
+//  MenuRow.swift
 //  OrderUp
 //
 //  Created by Kelly O'Brien on 9/5/20.
@@ -8,16 +8,17 @@
 
 import SwiftUI
 
-struct MenuCell: View {
+struct MenuRow: View {
     @State var quantity: Int = 0
-    @State private var itemInCart = false
+    //@State private var itemInCart = false
     @State private var cartItems: Dictionary<Int, MenuItem> = [:]
     
-    var inCart: Bool = false
+    //var inCart: Bool
     var menuItem: MenuItem
+    
     var body: some View {
         
-        HStack(alignment: .center, spacing: 30) {
+        HStack(alignment: .center, spacing: 40) {
             Image(menuItem.image)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
@@ -43,27 +44,29 @@ struct MenuCell: View {
                     
                     Spacer()
 
-                    if itemInCart && quantity > 0 {
+                    if quantity > 0 {
                         // this isn't hiding stepper when going to 0
-                        //StepperView(quantity: quantity)
-                        ZStack(alignment: .center) {
-                            Stepper(onIncrement: {
-                                self.quantity += 1
-                            }, onDecrement: {
-                                self.quantity -= 1
-                            }, label: { Text("\(quantity)") })
-                            .labelsHidden()
-
-                            Text("\(quantity)")
-                                .foregroundColor(Color.red)
-                                .font(.custom("Avenir", size: 14))
-                        }
+                        StepperView(quantity: quantity)
+//                        ZStack(alignment: .center) {
+//                            Stepper(onIncrement: {
+//                                self.quantity += 1
+//                            }, onDecrement: {
+//                                self.quantity -= 1
+//                            }, label: { Text("\(quantity)") })
+//                            .labelsHidden()
+//
+//                            Text("\(quantity)")
+//                                .foregroundColor(Color.red)
+//                                .font(.custom("Avenir", size: 14))
+//                        }
                     } else {
                         
                         Button(action: {
-                            self.itemInCart = true
+                            //self.itemInCart = true
                             self.quantity = 1
                             self.toggleCartItem(menuItem: self.menuItem)
+                            print("add to cart pressed")
+                           
  
                         }) {
                             Text("Add to Cart")

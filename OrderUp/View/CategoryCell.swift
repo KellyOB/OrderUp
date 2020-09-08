@@ -37,7 +37,6 @@ struct CategoryCell: View {
             }
         }
         .onTapGesture {
-            print("category tapped \(self.category.name)")
             self.selectedCategory = self.category.name
         }
     }

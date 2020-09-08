@@ -8,11 +8,6 @@
 
 import SwiftUI
 
-enum Categories: String {
-    case pizza = "Pizza"
-    case pasta = "Pasta"
-}
-
 struct ContentView: View {
     
     @State var cartItems: Dictionary<Int, MenuItem> = [:]

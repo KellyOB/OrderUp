@@ -17,7 +17,7 @@ struct MenuCell: View {
     var menuItem: MenuItem
     var body: some View {
         
-        HStack(alignment: .center, spacing: 40) {
+        HStack(alignment: .center, spacing: 30) {
             Image(menuItem.image)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
@@ -70,6 +70,7 @@ struct MenuCell: View {
                                 .font(.footnote)
                                 .foregroundColor(Color.white)
                         }
+                        .buttonStyle(BorderlessButtonStyle())
                         .padding(.all, 6.0)
                         .frame(width: 90, height: 31)
                         .background(/*@START_MENU_TOKEN@*/Color.red/*@END_MENU_TOKEN@*/)

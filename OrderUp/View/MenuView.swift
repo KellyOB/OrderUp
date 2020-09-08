@@ -20,9 +20,11 @@ struct MenuView: View {
             //MenuCell(inCart: self.inCart(menuItem: item), menuItem: item)
             
         }
+            .environment(\.defaultMinListRowHeight, 130)
         .onAppear {
             // Disable highlighting the cell when is selected
             UITableViewCell.appearance().selectionStyle = .none
+            
 
             // Remove the row separators
             UITableView.appearance().separatorStyle = .none

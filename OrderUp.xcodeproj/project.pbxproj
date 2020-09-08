@@ -16,12 +16,12 @@
 		BEDCB4452501C3D000D68697 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDCB4442501C3D000D68697 /* MenuItem.swift */; };
 		BEDD380325044AE0003BB738 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDD380225044AE0003BB738 /* CartItem.swift */; };
 		BEE7A773250214FE0005C7F6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7A772250214FE0005C7F6 /* Category.swift */; };
+		BEF683CE25082A20001578DA /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF683CD25082A20001578DA /* StepperView.swift */; };
 		BEFB45F7250466CC000D3769 /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45F6250466CC000D3769 /* MenuRow.swift */; };
 		BEFB45F92504677B000D3769 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45F82504677B000D3769 /* Cart.swift */; };
 		BEFB45FB250467C2000D3769 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45FA250467C2000D3769 /* CategoryCell.swift */; };
 		BEFB45FD25046E90000D3769 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45FC25046E90000D3769 /* CategoryView.swift */; };
 		BEFB45FF25047369000D3769 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45FE25047369000D3769 /* MenuList.swift */; };
-		BEFB460125048783000D3769 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB460025048783000D3769 /* StepperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,12 +36,12 @@
 		BEDCB4442501C3D000D68697 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		BEDD380225044AE0003BB738 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		BEE7A772250214FE0005C7F6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		BEF683CD25082A20001578DA /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		BEFB45F6250466CC000D3769 /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
 		BEFB45F82504677B000D3769 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		BEFB45FA250467C2000D3769 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		BEFB45FC25046E90000D3769 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		BEFB45FE25047369000D3769 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
-		BEFB460025048783000D3769 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 				BEFB45FA250467C2000D3769 /* CategoryCell.swift */,
 				BEFB45FE25047369000D3769 /* MenuList.swift */,
 				BEFB45F6250466CC000D3769 /* MenuRow.swift */,
-				BEFB460025048783000D3769 /* StepperView.swift */,
+				BEF683CD25082A20001578DA /* StepperView.swift */,
 				BEFB45F82504677B000D3769 /* Cart.swift */,
 			);
 			path = View;
@@ -199,7 +199,7 @@
 				BEFB45FF25047369000D3769 /* MenuList.swift in Sources */,
 				BEDCB4342501C18B00D68697 /* ContentView.swift in Sources */,
 				BEFB45F92504677B000D3769 /* Cart.swift in Sources */,
-				BEFB460125048783000D3769 /* StepperView.swift in Sources */,
+				BEF683CE25082A20001578DA /* StepperView.swift in Sources */,
 				BEFB45FB250467C2000D3769 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +348,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kismetdevelopment.OrderUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -368,7 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kismetdevelopment.OrderUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

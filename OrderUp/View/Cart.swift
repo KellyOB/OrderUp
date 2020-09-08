@@ -9,24 +9,34 @@
 import SwiftUI
 
 struct Cart: View {
-    var cartItems: Int
+    
+    var cartItems: Dictionary<Int, CartItem>
+    
+    var totalQuantity: Int {
+        var quantity = 0
+        for item in cartItems.values {
+            quantity += item.quantity
+        }
+        return quantity
+    }
     
     var body: some View {
         ZStack {
             Image(systemName: "cart")
-                .resizable()
-                //.aspectRatio(1, contentMode: .fit)
-                .frame(maxWidth: 80)
+                .font(.system(size: 27))
+                .foregroundColor(totalQuantity > 0 ? .red : .black)
+                         
             ZStack {
                 Circle()
                     .fill(Color.red)
-                    .frame(maxWidth: 30)
-                Text("\(cartItems)")
+                    .frame(maxWidth: 20)
+                Text("\(totalQuantity)")
                     .fontWeight(.bold)
-                    .foregroundColor(Color.white)
+                    .font(.custom("Avenir", size: 12))
+                    .foregroundColor(Color.white)                
             }
-            .offset(x: 20, y: 10)
-            .opacity(cartItems > 0 ? 1.0 : 0)
+            .offset(x: 15, y: -10)
+            .opacity(totalQuantity > 0 ? 1.0 : 0)
         }
     }
 }

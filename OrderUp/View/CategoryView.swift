@@ -10,8 +10,7 @@ import SwiftUI
 
 struct CategoryView: View {
         
-    @Binding var selectedCategory: String
-    
+    @Binding var selectedCategory: String    
     let categories: [Category]
     
     var body: some View {
@@ -24,6 +23,5 @@ struct CategoryView: View {
             }
             .padding(.leading, 20)
         })
-            // .frame(height: 180)
     }
 }

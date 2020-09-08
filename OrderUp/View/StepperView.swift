@@ -2,35 +2,34 @@
 //  StepperView.swift
 //  OrderUp
 //
-//  Created by Kelly O'Brien on 9/5/20.
+//  Created by Kelly O'Brien on 9/8/20.
 //  Copyright © 2020 Kismet Development. All rights reserved.
 //
 
 import SwiftUI
 
 struct StepperView: View {
-    
-   // @Binding var cartItems: Dictionary<Int, CartItem>
-    //var item: MenuItem
-   @State var quantity: Int
+
+    @Binding var cartItems: Dictionary<Int, CartItem>
+    var menuItem: MenuItem
     
     var body: some View {
+
         ZStack(alignment: .center) {
             Stepper(onIncrement: {
-                self.quantity += 1
+                self.cartItems[self.menuItem.id]!.quantity += 1
             }, onDecrement: {
-                if self.quantity > 0 {
-                    self.quantity -= 1
+                if self.cartItems[self.menuItem.id]!.quantity <= 1 {
+                    self.cartItems[self.menuItem.id] = nil
                 } else {
-                    print("you are at 0")
+                   self.cartItems[self.menuItem.id]!.quantity -= 1
                 }
-                
-            }, label: { Text("\(quantity)") })
+            }, label: { Text("") })
             .labelsHidden()
-            
-            Text("\(quantity)")
+
+            Text("\(cartItems[menuItem.id]?.quantity ?? 0)")
                 .foregroundColor(Color.red)
+                .font(.custom("Avenir", size: 14))
         }
     }
 }
-

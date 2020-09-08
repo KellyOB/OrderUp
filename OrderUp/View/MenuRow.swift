@@ -9,16 +9,13 @@
 import SwiftUI
 
 struct MenuRow: View {
-    @State var quantity: Int = 0
-    //@State private var itemInCart = false
-    @State private var cartItems: Dictionary<Int, MenuItem> = [:]
     
-    //var inCart: Bool
+    @Binding var cartItems: Dictionary<Int, CartItem>
     var menuItem: MenuItem
     
     var body: some View {
         
-        HStack(alignment: .center, spacing: 40) {
+        HStack(alignment: .center, spacing: 20) {
             Image(menuItem.image)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
@@ -33,7 +30,6 @@ struct MenuRow: View {
                 Text(menuItem.description)
                     .fontWeight(.medium)
                     .font(.custom("Avenir", size: 14))
-                    
                     .foregroundColor(Color.gray)
                 
                 HStack {
@@ -44,30 +40,11 @@ struct MenuRow: View {
                     
                     Spacer()
 
-                    if quantity > 0 {
-                        // this isn't hiding stepper when going to 0
-                        StepperView(quantity: quantity)
-//                        ZStack(alignment: .center) {
-//                            Stepper(onIncrement: {
-//                                self.quantity += 1
-//                            }, onDecrement: {
-//                                self.quantity -= 1
-//                            }, label: { Text("\(quantity)") })
-//                            .labelsHidden()
-//
-//                            Text("\(quantity)")
-//                                .foregroundColor(Color.red)
-//                                .font(.custom("Avenir", size: 14))
-//                        }
+                    if inCart(menuItem: menuItem) {
+                        StepperView(cartItems: $cartItems, menuItem: menuItem)
                     } else {
-                        
                         Button(action: {
-                            //self.itemInCart = true
-                            self.quantity = 1
                             self.toggleCartItem(menuItem: self.menuItem)
-                            print("add to cart pressed")
-                           
- 
                         }) {
                             Text("Add to Cart")
                                 .font(.footnote)
@@ -76,25 +53,11 @@ struct MenuRow: View {
                         .buttonStyle(BorderlessButtonStyle())
                         .padding(.all, 6.0)
                         .frame(width: 90, height: 31)
-                        .background(/*@START_MENU_TOKEN@*/Color.red/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(10)
-          
+                        .background(Color.red)
+                        .cornerRadius(10)          
                     }
-                    //                       .onTapGesture {
-                    //                               self.toggleCartItem(menuItem: item)
-                    //                       }
-                    
-                    
-                    // }
-                    
                 }
-                
-                //Spacer()
-                //                Image(inCart ? "checked" : "unchecked")
-                //                .resizable()
-                //                    .aspectRatio(1, contentMode: .fit)
-                //                    .frame(maxWidth: 50)
-            }//.padding(navigationBarItems(leading: 20))
+            }
         }
     }
     
@@ -104,7 +67,7 @@ struct MenuRow: View {
     
     func toggleCartItem(menuItem: MenuItem) {
         if cartItems[menuItem.id] == nil {
-            cartItems[menuItem.id] = menuItem
+            cartItems[menuItem.id] = CartItem(item: menuItem, quantity: 1)
         } else {
             cartItems[menuItem.id] = nil
         }

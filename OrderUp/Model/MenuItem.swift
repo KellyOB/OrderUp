@@ -8,10 +8,6 @@
 
 import Foundation
 
-//enum Categories {
-//    case pizza, pasta, salad, dessert
-//}
-
 struct MenuItem: Identifiable { 
     var id: Int
     var image: String
@@ -63,8 +59,7 @@ struct MenuItem: Identifiable {
                 MenuItem(id: 25, image: "dessert-molten-lava", name: "Molten Lava Cake", description: "Chocolate cake with a molten chocolate center.", price: 8.50),
                 MenuItem(id: 26, image: "dessert-mint-chocolate", name: "Mint Chocolate Cupcake", description: "Oh so minty and chocolatey.", price: 4.50),
                 MenuItem(id: 27, image: "dessert-chocolate-raspberry", name: "Chocolate Raspberry Tart", description: "Choclate filling topped with raspberries.", price: 8.50),
-                 MenuItem(id: 28, image: "dessert-frappachino", name: "Mocha Frappuccino", description: "It's the perfect cold coffee drink, served with whipped cream.", price: 6.50)
-                
+                 MenuItem(id: 28, image: "dessert-frappachino", name: "Mocha Frappuccino", description: "It's the perfect cold coffee drink, served with whipped cream.", price: 6.50)                
             ]
         }
     }

@@ -11,16 +11,13 @@ import SwiftUI
 struct MenuList: View {
     
     let menuItems: [MenuItem]
-    // use state whenever a view neds to maniuplate its own data
-    //@State private var cartItems: Dictionary<Int, MenuItem> = [:]
+    @Binding var cartItems: Dictionary<Int, CartItem>
     
     var body: some View {
         
         List(menuItems) {
             item in
-            MenuRow(menuItem: item)
-                
-            //MenuCell(inCart: self.inCart(menuItem: item), menuItem: item)
+            MenuRow(cartItems: self.$cartItems, menuItem: item)
             
         }
         .environment(\.defaultMinListRowHeight, 130)
@@ -29,6 +26,4 @@ struct MenuList: View {
             UITableView.appearance().separatorStyle = .none
         }
     }
-    
-    
 }

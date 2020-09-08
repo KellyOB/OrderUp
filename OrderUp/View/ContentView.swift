@@ -6,18 +6,28 @@
 //  Copyright © 2020 Kismet Development. All rights reserved.
 //
 
+// *******************************************************
+// 1. I tried putting the whole thing in a scrollView so
+//    that on smaller screens you were seeing more of the
+//    the menu items but I couldn't get it to work.
+//
+// 2. Is there a way to target specific screen sizes for
+//    SwiftUI?  I couldn't find a good way to size the
+//    images down just for the old SE.
+// *******************************************************
+
 import SwiftUI
 
 struct ContentView: View {
     
-    @State var cartItems: Dictionary<Int, MenuItem> = [:]
+    @State var cartItems: Dictionary<Int, CartItem> = [:]
     @State var selectedCategory = "Pizza"
   
     let categories = Category.loadCategories()
     
     var selectedCategoryMenuItems = String() {
         didSet {
-                selectedCategoryMenuItems = selectedCategory
+            selectedCategoryMenuItems = selectedCategory
         }
     }
     
@@ -36,10 +46,10 @@ struct ContentView: View {
                 .font(.custom("Avenir", size: 20))
                 .padding(.leading, 20)
                 
-                MenuList(menuItems: MenuItem.loadmenu(category: selectedCategory))
+                MenuList(menuItems: MenuItem.loadmenu(category: selectedCategory), cartItems: $cartItems)
             }
             .navigationBarTitle(Text("Order Up"), displayMode: .inline)
-            .navigationBarItems(trailing: Cart(cartItems: cartItems.count))
+            .navigationBarItems(trailing: Cart(cartItems: cartItems))
             .padding(.top, 20.0)
         }
     }

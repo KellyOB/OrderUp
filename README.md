@@ -21,4 +21,3 @@ You are going to create a bigger and better version of our cart app. This app is
 
 # Features
 * SwiftUI
-* State

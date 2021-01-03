@@ -17,7 +17,7 @@ You are going to create a bigger and better version of our cart app. This app is
 
 # Screenshots
 
-<img src = "https://user-images.githubusercontent.com/32715761/103487882-6430a780-4dbd-11eb-915c-5078fe375a7e.png" width="200" hspace="10" /> <img src = "https://user-images.githubusercontent.com/32715761/103487894-6e52a600-4dbd-11eb-9238-fc69008e08d0.png" width="200" hspace="30" />
+<img src = "https://user-images.githubusercontent.com/32715761/103488282-3305a680-4dc0-11eb-906f-94c97696e423.png" width="200" hspace="10" /> <img src = "https://user-images.githubusercontent.com/32715761/103488290-3dc03b80-4dc0-11eb-9839-7cbeeded2300.png" width="200" hspace="30" />
 
 # Features
 * SwiftUI
